@@ -66,3 +66,31 @@ test("There are at least 500 words on the page", () => {
 
 const console = document.getElementById("tests");
 prettify.toHTML(run(), console);
+
+var current, array;
+
+
+array = ['https://image.shutterstock.com/image-photo/untouched-tropical-beach-sri-lanka-600w-109674992.jpg', 'https://image.shutterstock.com/image-photo/beach-tropical-sea-600w-664029658.jpg', 'https://image.shutterstock.com/image-photo/coconut-palm-trees-grow-on-600w-723806818.jpg'];
+let element_list = document.getElementById('list');
+let new_img = document.createElement('img');
+let element_image = document.getElementById('image');
+element_image.setAttribute("src", array[0]);
+
+element_list.appendChild(new_img);
+
+
+document.getElementById('button').addEventListener('click', (event) => {
+  current = array.pop();
+  let element_image2 = document.getElementById('image');
+  element_image2.setAttribute("src", current);
+  array.unshift(current);
+
+});
+
+document.getElementById('button2').addEventListener('click', (event) => {
+  current = array.shift();
+  let element_image3 = document.getElementById('image');
+  element_image3.setAttribute("src", current);
+  array.push(current);
+
+});
